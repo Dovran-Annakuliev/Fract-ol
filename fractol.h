@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:23:49 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/09 13:19:30 by rfork            ###   ########.fr       */
+/*   Updated: 2020/03/09 13:29:50 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 typedef struct	s_fract
 {
 	int 		fract;
+
 }				t_fract;
 
 typedef struct	s_image
@@ -55,6 +56,7 @@ typedef struct	s_mlx
 	t_image		img;
 //	t_clr		clr;
 	t_fract		*fract;
+	int 		count_frct;
 }				t_mlx;
 
 int				main(int ac, char **av);
