@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:23:49 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/09 13:29:50 by rfork            ###   ########.fr       */
+/*   Updated: 2020/03/18 19:17:54 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,37 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-//# include <stdio.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
 
 # include "libft/libft.h"
-//# include "key.h"
+# include "key.h"
 # include "minilibx/mlx.h"
 
-# define W 2560
-# define H 1600
-# define IW 2560
-# define IH 1600
+//# define W 2560
+//# define H 1600
+//# define IW 2560
+//# define IH 1600
+
+/*
+** -------------------LINUX----------------------
+*/
+
+//# define W 1920
+//# define H 1080
+//# define IW 1920
+//# define IH 1080
+//
+# define W 640
+# define H 480
+# define IW 640
+# define IH 480
 
 typedef struct	s_fract
 {
 	int 		fract;
-
 }				t_fract;
 
 typedef struct	s_image
@@ -55,13 +68,18 @@ typedef struct	s_mlx
 //	t_map		map;
 	t_image		img;
 //	t_clr		clr;
-	t_fract		*fract;
+	t_fract		fract;
 	int 		count_frct;
+	int 		iter;
+
 }				t_mlx;
 
 int				main(int ac, char **av);
 t_mlx			*start(int ac, char **av);
 void			read_arg(int ac, char **av, t_mlx *data);
+void			draw_image(t_mlx *data);
+void			fract(t_mlx *data, int x, int y);
 void			errors(int err);
+int				deal_key(int key, t_mlx *data);
 
 #endif

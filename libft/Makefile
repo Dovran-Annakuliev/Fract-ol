@@ -6,7 +6,7 @@
 #    By: rfork <rfork@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/06 17:29:02 by rfork             #+#    #+#              #
-#    Updated: 2020/03/11 17:18:28 by dovran           ###   ########.fr        #
+#    Updated: 2020/03/18 16:55:19 by dovran           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,8 @@ SRCS = is/ft_isalnum.c \
 	   complex/ft_cplxadd.c \
 	   complex/ft_cplxsub.c \
 	   complex/ft_cplxmul.c \
-	   complex/ft_cplxdiv.c
+	   complex/ft_cplxdiv.c \
+	   complex/ft_cplxmod.c
 OBJS = $(SRCS:.c=.o)
 INCLUDES = libft.h
 

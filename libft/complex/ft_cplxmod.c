@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cplxsub.c                                       :+:      :+:    :+:   */
+/*   ft_cplxmod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dovran <dovran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/13 12:19:26 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/13 12:19:26 by rfork            ###   ########.fr       */
+/*   Created: 2020/03/18 16:58:10 by dovran            #+#    #+#             */
+/*   Updated: 2020/03/18 18:05:37 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib_cmplx.h"
 
-t_complex ft_cplxsub(t_complex c1, t_complex c2)
+double ft_cplxmod(t_complex c)
 {
-	t_complex c;
+	double a;
 
-	c.a = c1.a - c2.a;
-	c.b = c1.b - c2.b;
-	return(c);
+	a = sqrt(c.a * c.a + c.b * c.b);
+	return(a);
 }
