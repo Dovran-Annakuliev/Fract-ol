@@ -12,7 +12,7 @@
 
 GCC = gcc -Wall -Wextra -Werror -g
 NAME = fractol
-SRCS = main.c start.c errors.c read_arg.c fract.c draw_image.c key.c
+SRCS = main.c start.c errors.c read_arg.c fractol.c draw_image.c key.c
 OBJS = $(SRCS:.c=.o)
 HEAD = -c -I fractol.h key.h
 

@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 12:23:49 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/18 19:17:54 by dovran           ###   ########.fr       */
+/*   Updated: 2020/03/18 19:52:19 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@
 //# define H 1080
 //# define IW 1920
 //# define IH 1080
-//
-# define W 640
-# define H 480
-# define IW 640
-# define IH 480
+
+# define W 1000
+# define H 1000
+# define IW 1000
+# define IH 1000
 
 typedef struct	s_fract
 {
@@ -78,7 +78,7 @@ int				main(int ac, char **av);
 t_mlx			*start(int ac, char **av);
 void			read_arg(int ac, char **av, t_mlx *data);
 void			draw_image(t_mlx *data);
-void			fract(t_mlx *data, int x, int y);
+void			fractol(t_mlx *data, int x, int y);
 void			errors(int err);
 int				deal_key(int key, t_mlx *data);
 

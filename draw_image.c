@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 16:45:35 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/18 19:16:17 by dovran           ###   ########.fr       */
+/*   Updated: 2020/03/18 19:18:56 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void		draw_image(t_mlx *data)
 	{
 		j = -1;
 		while (++j < IW)
-			fract(data, j, i);
+			fractol(data, j, i);
 	}
 	printf("5\n");
 	mlx_put_image_to_window(data->mlx, data->window, data->img.image, 0, 0);

@@ -6,7 +6,7 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 13:21:50 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/18 18:40:07 by dovran           ###   ########.fr       */
+/*   Updated: 2020/03/18 19:10:57 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int				deal_key(int key, t_mlx *data)
 //		change_z(data, key);
 //	if (key == ZOOM_M || key == ZOOM_P)
 //		zoom(data, key);
-	printf("key = %d\n", key);
+//	printf("key = %d\n", key);
 	if (key == ESC)
 		close_fdf(data);
 	return (0);

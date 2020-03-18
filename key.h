@@ -6,14 +6,14 @@
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/09 13:33:24 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/18 18:34:28 by dovran           ###   ########.fr       */
+/*   Updated: 2020/03/18 19:21:14 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef KEY_H
 # define KEY_H
 
-# define ESC 53
+//# define ESC 53
 //# define ZOOM_P 69
 //# define ZOOM_M 78
 //# define Z_P 67
@@ -37,7 +37,7 @@
 ** -------------------LINUX----------------------
 */
 
-//# define ESC 65307
+# define ESC 65307
 //# define zoom_p 65451
 //# define zoom_m 65453
 //# define z_p 65450

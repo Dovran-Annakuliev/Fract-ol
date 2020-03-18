@@ -6,13 +6,13 @@
 /*   By: dovran <dovran@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/18 17:04:46 by dovran            #+#    #+#             */
-/*   Updated: 2020/03/18 19:15:06 by dovran           ###   ########.fr       */
+/*   Updated: 2020/03/18 19:48:26 by dovran           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void fract(t_mlx *data, int x, int y)
+void fractol(t_mlx *data, int x, int y)
 {
 	t_complex z;
 	t_complex c;
@@ -20,8 +20,8 @@ void fract(t_mlx *data, int x, int y)
 
 	z.a = 0;
 	z.b = 0;
-	c.a = x;
-	c.b = y;
+	c.a = (double)x / IW - 1.5;
+	c.b = (double)y / IH - 0.5;
 	i = -1;
 	while (++i < data->iter)
 	{
