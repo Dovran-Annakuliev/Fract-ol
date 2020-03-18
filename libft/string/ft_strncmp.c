@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/08 12:49:39 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/11 17:14:51 by dovran           ###   ########.fr       */
+/*   Created: 2019/09/06 18:07:45 by rfork             #+#    #+#             */
+/*   Updated: 2019/09/18 16:06:13 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "lib_str.h"
 
-# include "is/lib_is.h"
-# include "list/lib_lst.h"
-# include "memory/lib_mem.h"
-# include "put/lib_put.h"
-# include "string/lib_str.h"
-# include "other/lib_othr.h"
-# include "complex/lib_cmplx.h"
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+	int		f;
 
-#endif
+	i = -1;
+	f = 0;
+	if (n == 0)
+		return (0);
+	while (s1[++i] && s2[i] && (f == 0) && (i != n))
+		f = (unsigned char)s1[i] - (unsigned char)s2[i];
+	if (((s1[i] && !s2[i]) || (!s1[i] && s2[i])) && f == 0 && i != n)
+		f = (unsigned char)s1[i] - (unsigned char)s2[i];
+	return (f);
+}

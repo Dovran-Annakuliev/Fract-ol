@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_cmplxadd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/08 12:49:39 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/11 17:14:51 by dovran           ###   ########.fr       */
+/*   Created: 2020/03/13 12:13:57 by rfork             #+#    #+#             */
+/*   Updated: 2020/03/13 12:13:57 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "lib_cmplx.h"
 
-# include "is/lib_is.h"
-# include "list/lib_lst.h"
-# include "memory/lib_mem.h"
-# include "put/lib_put.h"
-# include "string/lib_str.h"
-# include "other/lib_othr.h"
-# include "complex/lib_cmplx.h"
-
-#endif
+void ft_cplxadd(t_complex c1, t_complex c2, t_complex c)
+{
+	c.a = c1.a + c2.a;
+	c.b = c1.b + c2.b;
+}

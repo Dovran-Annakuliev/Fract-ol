@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/08 12:49:39 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/11 17:14:51 by dovran           ###   ########.fr       */
+/*   Created: 2019/09/08 14:20:07 by rfork             #+#    #+#             */
+/*   Updated: 2020/01/28 16:08:25 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "lib_str.h"
 
-# include "is/lib_is.h"
-# include "list/lib_lst.h"
-# include "memory/lib_mem.h"
-# include "put/lib_put.h"
-# include "string/lib_str.h"
-# include "other/lib_othr.h"
-# include "complex/lib_cmplx.h"
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*arr;
 
-#endif
+	if (s1 && s2)
+		arr = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+	else if (s1)
+	{
+		arr = ft_strdup(s1);
+		return (arr);
+	}
+	else if (s2)
+	{
+		arr = ft_strdup(s2);
+		return (arr);
+	}
+	if (s1 && s2)
+	{
+		arr = ft_strcpy(arr, s1);
+		arr = ft_strcat(arr, s2);
+		return (arr);
+	}
+	return (NULL);
+}

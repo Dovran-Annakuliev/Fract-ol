@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/08 12:49:39 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/11 17:14:51 by dovran           ###   ########.fr       */
+/*   Created: 2019/09/09 15:43:57 by rfork             #+#    #+#             */
+/*   Updated: 2019/09/19 16:25:34 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "lib_mem.h"
 
-# include "is/lib_is.h"
-# include "list/lib_lst.h"
-# include "memory/lib_mem.h"
-# include "put/lib_put.h"
-# include "string/lib_str.h"
-# include "other/lib_othr.h"
-# include "complex/lib_cmplx.h"
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	unsigned char *d;
+	unsigned char *s;
 
-#endif
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	if (dst == src)
+		return (dst);
+	if (d < s)
+	{
+		while (len--)
+			*d++ = *s++;
+		return (dst);
+	}
+	else
+	{
+		while (len--)
+			*(d + len) = *(s + len);
+		return (dst);
+	}
+}

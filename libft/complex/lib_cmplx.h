@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   lib_cmplx.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/08 12:49:39 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/11 17:14:51 by dovran           ###   ########.fr       */
+/*   Created: 2020/03/13 12:09:51 by rfork             #+#    #+#             */
+/*   Updated: 2020/03/13 12:25:12 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef LIB_CMPLX_H
+#define LIB_CMPLX_H
 
-# include "is/lib_is.h"
-# include "list/lib_lst.h"
-# include "memory/lib_mem.h"
-# include "put/lib_put.h"
-# include "string/lib_str.h"
-# include "other/lib_othr.h"
-# include "complex/lib_cmplx.h"
+# include "../libft.h"
+
+typedef struct		s_complex
+{
+	int 			a;
+	int 			b;
+}					t_complex;
+
+void				ft_cplxadd(t_complex c1, t_complex c2, t_complex c);
+void				ft_cplxsub(t_complex c1, t_complex c2, t_complex c);
+void				ft_cplxmul(t_complex c1, t_complex c2, t_complex c);
+void				ft_cplxdiv(t_complex c1, t_complex c2, t_complex c);
 
 #endif

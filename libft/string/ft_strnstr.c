@@ -1,24 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/08 12:49:39 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/11 17:14:51 by dovran           ###   ########.fr       */
+/*   Created: 2019/09/06 18:36:59 by rfork             #+#    #+#             */
+/*   Updated: 2019/09/18 16:06:13 by rfork            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "lib_str.h"
 
-# include "is/lib_is.h"
-# include "list/lib_lst.h"
-# include "memory/lib_mem.h"
-# include "put/lib_put.h"
-# include "string/lib_str.h"
-# include "other/lib_othr.h"
-# include "complex/lib_cmplx.h"
+char	*ft_strnstr(const char *str, const char *fn, size_t n)
+{
+	size_t	i;
+	int		k;
+	size_t	m;
 
-#endif
+	i = -1;
+	k = 0;
+	m = 0;
+	if (!fn)
+		return ((char*)str);
+	while (str[++i])
+	{
+		k = 0;
+		while (str[i + m] && fn[m] && k != 1 && (i + m < n))
+			if (fn[m] == str[i + m])
+				m++;
+			else
+			{
+				k = 1;
+				m = 0;
+			}
+		if (!fn[m])
+			return ((char*)(str + i));
+	}
+	return (0);
+}
