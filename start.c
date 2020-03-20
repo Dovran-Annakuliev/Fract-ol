@@ -52,6 +52,8 @@ t_mlx		*start(int ac, char **av)
 
 	if (!(data = (t_mlx *)malloc(sizeof(t_mlx))))
 		errors(0);
+	data->iter = 200;
+	read_arg(ac, av, data);
 	if (!(data->mlx = mlx_init()))
 		errors(0);
 	if (!(data->window = mlx_new_window(data->mlx, W, H, "fractol")))
@@ -61,8 +63,6 @@ t_mlx		*start(int ac, char **av)
 	if (!(data->img.img_data = (int *)mlx_get_data_addr(data->img.image,
 			&data->img.bbp, &data->img.sz_l, &data->img.end)))
 		errors(0);
-	data->iter = 200;
-	read_arg(ac, av, data);
 //	draw_image(data);
 //	displace(data);
 //	def_values(data);

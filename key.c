@@ -61,8 +61,8 @@
 
 static void		close_fdf(t_mlx *data)
 {
-//	free(data->arr);
-	mlx_destroy_image(data->mlx, data->img.img_data);
+	free(data->img.img_data);
+	mlx_destroy_image(data->mlx, data->img.image);
 	mlx_clear_window(data->mlx, data->window);
 	(void)data;
 	exit(0);
