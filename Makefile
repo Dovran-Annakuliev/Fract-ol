@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-GCC = gcc -Wall -Wextra -Werror -g
+GCC = gcc -Wall -Wextra -Werror
 NAME = fractol
 SRCS = sources/main.c\
 		sources/start.c\
@@ -44,7 +44,7 @@ endif
 
 all: $(NAME)
 
-%.o: %.c
+sources%.o: %.c
 		$(GCC) -c $<
 
 lib:
