@@ -26,20 +26,6 @@
 # include "key.h"
 # include "../minilibx/minilibx_macos/mlx.h"
 
-//# define W 2560
-//# define H 1600
-//# define IW 2560
-//# define IH 1600
-
-/*
-** -------------------LINUX----------------------
-*/
-
-//# define W 1920
-//# define H 1080
-//# define IW 1920
-//# define IH 1080
-
 # define W 1000
 # define H 1000
 # define IW 1000

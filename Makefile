@@ -27,7 +27,7 @@ ifeq ($(detected_OS),Darwin)
 	#LIB = -L./libs/glad/ -lglad -L./libs/glfw/src/ -lglfw3      # Mac OS X
 	#LIBRARIES += -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
 	LIBMAKE := minilibx/minilibx_macos
-	LIB = -L libft -lft -L $(LIBMAKE) -lmlx -framework OpenGL -framework Appkit
+	LIB = -L libft -lft -L $(LIBMAKE) -lmlx -framework OpenGL -framework Appkit -framework OpenCL
 endif
 
 all: $(NAME)
