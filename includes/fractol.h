@@ -22,9 +22,15 @@
 # include <unistd.h>
 # include <math.h>
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include "key.h"
-# include "minilibx/mlx.h"
+
+#ifdef __APPLE__
+# include "../minilibx/minilibx_macos/mlx.h"
+#else
+# include "../minilibx/minilibx/mlx.h"
+#endif
+
 
 //# define W 2560
 //# define H 1600
