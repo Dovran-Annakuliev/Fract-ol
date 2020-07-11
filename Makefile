@@ -1,7 +1,7 @@
 GCC = gcc -Wall -Wextra -Werror
 NAME = fractol
 SRCS = sources/main.c\
-		sources/start.c\
+		sources/data_init.c\
 		sources/errors.c\
 		sources/read_arg.c\
 		sources/fractol.c\

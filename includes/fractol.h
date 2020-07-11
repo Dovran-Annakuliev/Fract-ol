@@ -21,6 +21,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
+#include <OpenCL/cl.h>
 
 # include "../libft/libft.h"
 # include "key.h"
@@ -45,27 +46,40 @@ typedef struct	s_image
 	int			end;
 }				t_image;
 
+typedef struct	s_cl
+{
+	cl_platform_id		platform_id;
+	cl_device_id		device_id;
+	cl_context			context;
+	cl_command_queue	queue;
+	cl_program			program;
+	cl_kernel			kernel;
+	char 				**kernel_source;
+	int 				count;
+}				t_cl;
+
 typedef struct	s_mlx
 {
 	void		*window;
 	void		*mlx;
-//	t_point		*arr;
-//	t_cam		cam;
-//	t_map		map;
 	t_image		img;
-//	t_clr		clr;
-	t_fract		fract;
+	t_cl		cl;
+	char		*sourse_fractal;
+	int			type;
 	int 		count_frct;
 	int 		iter;
 
 }				t_mlx;
 
 int				main(int ac, char **av);
-t_mlx			*start(int ac, char **av);
+t_mlx			*data_init(int ac, char **av);
+char			**get_kernel_source(t_cl *cl, char *type);
 void			read_arg(int ac, char **av, t_mlx *data);
 void			draw_image(t_mlx *data);
 void			fractol(t_mlx *data, int x, int y);
 void			errors(int err);
-int				deal_key(int key, t_mlx *data);
+int				keyboard_key(int key, t_mlx *data);
+void			cl_init(t_cl *cl);
+void			cl_free(t_cl *cl);
 
 #endif

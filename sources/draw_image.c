@@ -1,67 +1,35 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   draw_image.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/18 16:45:35 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/18 19:18:56 by dovran           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/fractol.h"
-
-//static void	create_background(t_mlx *data)
-//{
-//	int i;
-//
-//	i = -1;
-//	while (++i < (IW * IH))
-//		data->img.img_data[i] = 0x000000;
-//}
-
-//static void	put_string(t_mlx *data)
-//{
-//	mlx_string_put(data->mlx, data->window, 100, 50, 0xbebebe, "Exit - 'esc'");
-//	mlx_string_put(data->mlx, data->window, 100, 75,
-//			0xbebebe, "Default - 'clear'");
-//	mlx_string_put(data->mlx, data->window, 100, 100,
-//			0xbebebe, "Projection - 'num_del'");
-//	mlx_string_put(data->mlx, data->window, 100, 125,
-//			0xbebebe, "Change Z - 'num_*', 'num_/'");
-//	mlx_string_put(data->mlx, data->window, 100, 150,
-//			0xbebebe, "Change scale - 'num_+', 'num_-'");
-//	mlx_string_put(data->mlx, data->window, 100, 175,
-//			0xbebebe, "Rotation_x - 'num_4', 'num_6'");
-//	mlx_string_put(data->mlx, data->window, 100, 200,
-//			0xbebebe, "Rotation_y - 'num_8', 'num_5");
-//	mlx_string_put(data->mlx, data->window, 100, 225,
-//			0xbebebe, "Rotation_z - 'num_7', 'num_9'");
-//	mlx_string_put(data->mlx, data->window, 100, 250,
-//			0xbebebe, "Move_x - 'left', 'right'");
-//	mlx_string_put(data->mlx, data->window, 100, 275,
-//			0xbebebe, "Move_y - 'up', 'down'");
-//	mlx_string_put(data->mlx, data->window, 100, 300,
-//			0xbebebe, "Move_z - 'num_0', 'num_1'");
-//}
 
 void		draw_image(t_mlx *data)
 {
-	int i;
-	int j;
+	cl_init(&data->cl);
+	cl_int				ret;
+	cl_mem output_buffer;
 
-//	data->cam.y_dplace = (int)((IH / 2.0f));
-//	data->cam.x_dplace = (int)((IW / 2.0f));
-//	create_background(data);
-	i = -1;
-	while (++i < IH)
+	output_buffer = clCreateBuffer(data->cl.context, CL_MEM_WRITE_ONLY, sizeof(float) * WIDTH * HEIGHT, NULL, &ret);
+	clSetKernelArg(data->cl.kernel, 0, sizeof(int), &data->max_iter);
+	clSetKernelArg(data->cl.kernel, 1, sizeof(float), &data->view.minX);
+	clSetKernelArg(data->cl.kernel, 2, sizeof(float), &data->view.maxX);
+	clSetKernelArg(data->cl.kernel, 3, sizeof(float), &data->view.minY);
+	clSetKernelArg(data->cl.kernel, 4, sizeof(float), &data->view.maxY);
+
+	if (data->type == 2)
 	{
-		j = -1;
-		while (++j < IW)
-			fractol(data, j, i);
+		clSetKernelArg(data->cl.kernel, 5, sizeof(float), &data->view.mouse_re);
+		clSetKernelArg(data->cl.kernel, 6, sizeof(float), &data->view.mouse_im);
+		clSetKernelArg(data->cl.kernel, 7, sizeof(cl_mem), &output_buffer);
 	}
-	printf("5\n");
-	mlx_put_image_to_window(data->mlx, data->window, data->img.image, 0, 0);
-//	put_string(data);
+	else
+		clSetKernelArg(data->cl.kernel, 5, sizeof(cl_mem), &output_buffer);
+
+	size_t dim = 2;
+	size_t global_size[] = {WIDTH,HEIGHT};
+	clEnqueueNDRangeKernel(data->cl.queue, data->cl.kernel, dim, NULL, global_size, NULL, 0, NULL, NULL);
+	clFinish(data->cl.queue);
+	clEnqueueReadBuffer(data->cl.queue, output_buffer, CL_TRUE, 0, sizeof(float) * WIDTH * HEIGHT, data->result, 0, NULL, NULL);
+	clFinish(data->cl.queue);
+
+	color_fractal(data);
+	cl_free(&data->cl);
+	ret = clReleaseMemObject(output_buffer);
 }

@@ -1,31 +1,17 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 12:22:29 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/18 18:45:31 by dovran           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/fractol.h"
 
 int		main(int ac, char **av)
 {
 	t_mlx *data;
 
-//	printf("1\n");
-	data = start(ac, av);
-//	printf("2\n");
+	data = data_init(ac, av);
+	data->cl.kernel_source = get_kernel_source(&data->cl, data->sourse_fractal);
+	cl_init(&data->cl);
 	draw_image(data);
-//	printf("3\n");
-//	int i = -1;
-//	while (++i < (ac - 1))
-//		printf("fract[%d] = %d\n", i, data->fract[i].fract);
 
-	mlx_hook(data->window, 2, 1l << 0, deal_key, data);
+	mlx_hook(data->window, 2, 1l << 0, keyboard_key, data);
+	mlx_hook(data->window, 4, (1L << 2), mouse_key, data);
+	mlx_hook(data->window, 6, (1L << 2), change_julia, data);
 	mlx_loop(data->mlx);
 	mlx_clear_window(data->mlx, data->window);
 	mlx_destroy_image(data->mlx, data->img.img_data);

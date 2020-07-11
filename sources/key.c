@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   key.c                                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 13:21:50 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/18 19:10:57 by dovran           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/fractol.h"
 
 //static void		def(t_mlx *data)
@@ -68,7 +56,7 @@ static void		close_fdf(t_mlx *data)
 	exit(0);
 }
 
-int				deal_key(int key, t_mlx *data)
+int				keyboard_key(int key, t_mlx *data)
 {
 //	if (key == X_DP_P || key == X_DP_M)
 //		shift_x(data, key);
