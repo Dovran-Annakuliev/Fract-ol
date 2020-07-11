@@ -1,0 +1,154 @@
+cmake_minimum_required(VERSION 3.16)
+project(Fract_ol C)
+
+set(CMAKE_C_STANDARD 11)
+
+include_directories(includes)
+include_directories(libft)
+include_directories(libft/complex)
+include_directories(libft/is)
+include_directories(libft/list)
+include_directories(libft/memory)
+include_directories(libft/other)
+include_directories(libft/put)
+include_directories(libft/string)
+include_directories(minilibx/minilibx)
+include_directories(minilibx/minilibx_macos)
+include_directories(minilibx/minilibx_mms_20191025_beta)
+
+add_executable(Fract_ol
+        includes/fractol.h
+        includes/key.h
+        libft/complex/ft_cplxadd.c
+        libft/complex/ft_cplxdiv.c
+        libft/complex/ft_cplxmul.c
+        libft/complex/ft_cplxsub.c
+        libft/complex/lib_cmplx.h
+        libft/is/ft_isalnum.c
+        libft/is/ft_isalpha.c
+        libft/is/ft_isascii.c
+        libft/is/ft_isblank.c
+        libft/is/ft_iscntrl.c
+        libft/is/ft_isdigit.c
+        libft/is/ft_islower.c
+        libft/is/ft_isprint.c
+        libft/is/ft_isspace.c
+        libft/is/ft_isupper.c
+        libft/is/ft_tolower.c
+        libft/is/ft_toupper.c
+        libft/is/lib_is.h
+        libft/list/ft_lstadd.c
+        libft/list/ft_lstdel.c
+        libft/list/ft_lstdelone.c
+        libft/list/ft_lstiter.c
+        libft/list/ft_lstmap.c
+        libft/list/ft_lstnew.c
+        libft/list/lib_lst.h
+        libft/memory/ft_memalloc.c
+        libft/memory/ft_memccpy.c
+        libft/memory/ft_memchr.c
+        libft/memory/ft_memcmp.c
+        libft/memory/ft_memcpy.c
+        libft/memory/ft_memdel.c
+        libft/memory/ft_memmove.c
+        libft/memory/ft_memset.c
+        libft/memory/lib_mem.h
+        libft/other/ft_atoi.c
+        libft/other/ft_bzero.c
+        libft/other/ft_itoa.c
+        libft/other/get_next_line.c
+        libft/other/lib_othr.h
+        libft/put/ft_putchar.c
+        libft/put/ft_putchar_fd.c
+        libft/put/ft_putendl.c
+        libft/put/ft_putendl_fd.c
+        libft/put/ft_putnbr.c
+        libft/put/ft_putnbr_fd.c
+        libft/put/ft_putstr.c
+        libft/put/ft_putstr_fd.c
+        libft/put/lib_put.h
+        libft/string/ft_count_words.c
+        libft/string/ft_strcat.c
+        libft/string/ft_strchr.c
+        libft/string/ft_strclr.c
+        libft/string/ft_strcmp.c
+        libft/string/ft_strcpy.c
+        libft/string/ft_strdel.c
+        libft/string/ft_strdup.c
+        libft/string/ft_strequ.c
+        libft/string/ft_striter.c
+        libft/string/ft_striteri.c
+        libft/string/ft_strjoin.c
+        libft/string/ft_strlcat.c
+        libft/string/ft_strlen.c
+        libft/string/ft_strmap.c
+        libft/string/ft_strmapi.c
+        libft/string/ft_strncat.c
+        libft/string/ft_strncmp.c
+        libft/string/ft_strncpy.c
+        libft/string/ft_strnequ.c
+        libft/string/ft_strnew.c
+        libft/string/ft_strnstr.c
+        libft/string/ft_strrchr.c
+        libft/string/ft_strsplit.c
+        libft/string/ft_strstr.c
+        libft/string/ft_strsub.c
+        libft/string/ft_strtrim.c
+        libft/string/lib_str.h
+        libft/libft.h
+        minilibx/minilibx/test/main.c
+        minilibx/minilibx/test/new_win.c
+        minilibx/minilibx/mlx.h
+        minilibx/minilibx/mlx_clear_window.c
+        minilibx/minilibx/mlx_destroy_image.c
+        minilibx/minilibx/mlx_destroy_window.c
+        minilibx/minilibx/mlx_expose_hook.c
+        minilibx/minilibx/mlx_flush_event.c
+        minilibx/minilibx/mlx_get_color_value.c
+        minilibx/minilibx/mlx_get_data_addr.c
+        minilibx/minilibx/mlx_hook.c
+        minilibx/minilibx/mlx_init.c
+        minilibx/minilibx/mlx_int.h
+        minilibx/minilibx/mlx_int_anti_resize_win.c
+        minilibx/minilibx/mlx_int_do_nothing.c
+        minilibx/minilibx/mlx_int_get_visual.c
+        minilibx/minilibx/mlx_int_param_event.c
+        minilibx/minilibx/mlx_int_set_win_event_mask.c
+        minilibx/minilibx/mlx_int_str_to_wordtab.c
+        minilibx/minilibx/mlx_int_wait_first_expose.c
+        minilibx/minilibx/mlx_key_hook.c
+        minilibx/minilibx/mlx_lib_xpm.c
+        minilibx/minilibx/mlx_loop.c
+        minilibx/minilibx/mlx_loop_hook.c
+        minilibx/minilibx/mlx_mouse_hook.c
+        minilibx/minilibx/mlx_new_image.c
+        minilibx/minilibx/mlx_new_window.c
+        minilibx/minilibx/mlx_pixel_put.c
+        minilibx/minilibx/mlx_put_image_to_window.c
+        minilibx/minilibx/mlx_rgb.c
+        minilibx/minilibx/mlx_string_put.c
+        minilibx/minilibx/mlx_xpm.c
+        minilibx/minilibx_macos/font.c
+        minilibx/minilibx_macos/mlx.h
+        minilibx/minilibx_macos/mlx_init_loop.m
+        minilibx/minilibx_macos/mlx_int.h
+        minilibx/minilibx_macos/mlx_int_str_to_wordtab.c
+        minilibx/minilibx_macos/mlx_new_image.m
+        minilibx/minilibx_macos/mlx_new_window.h
+        minilibx/minilibx_macos/mlx_new_window.m
+        minilibx/minilibx_macos/mlx_rgb.c
+        minilibx/minilibx_macos/mlx_shaders.c
+        minilibx/minilibx_macos/mlx_xpm.c
+        minilibx/minilibx_mms_20191025_beta/font.c
+        minilibx/minilibx_mms_20191025_beta/mlx.h
+        minilibx/minilibx_mms_20191025_beta/mlx_png.c
+        minilibx/minilibx_mms_20191025_beta/mlx_rgb.c
+        minilibx/minilibx_mms_20191025_beta/mlx_string_put.c
+        minilibx/minilibx_mms_20191025_beta/mlx_xpm.c
+        sources/draw_image.c
+        sources/errors.c
+        sources/fractol.c
+        sources/key.c
+        sources/main.c
+        sources/read_arg.c
+        sources/start.c)
