@@ -1,16 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rfork <rfork@student.42.fr>                +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/09 12:23:49 by rfork             #+#    #+#             */
-/*   Updated: 2020/03/18 19:52:19 by dovran           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
 #ifndef FRACTOL_H
 #define FRACTOL_H
 
@@ -21,11 +8,17 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-#include <OpenCL/cl.h>
+
+#ifdef __APPLE__
+# include "../minilibx/minilibx_macos/mlx.h"
+# include <OpenCL/cl.h>
+#else
+# include "../minilibx/minilibx/mlx.h"
+# include <CL/opencl.h>
+#endif
 
 # include "../libft/libft.h"
 # include "key.h"
-# include "../minilibx/minilibx_macos/mlx.h"
 
 # define W 1000
 # define H 1000
