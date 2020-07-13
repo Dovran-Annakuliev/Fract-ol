@@ -1,4 +1,4 @@
 # Fract-ol
-Fractal calculation and rendering project using "OpenCL" technology.
+Fractal calculation project using the “OpenCL” technology and its rendering.
 
 Worck in progress.
