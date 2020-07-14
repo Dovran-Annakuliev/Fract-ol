@@ -25,7 +25,7 @@ char	**get_kernel_source(t_cl *cl, char *type)
 	line = NULL;
 	fd = 0;
 	if (((fd = open(type, O_RDONLY)) < 0) || ((read(fd, line, 0)) < 0))
-		error(0);
+		errors(0);
 	cl->count = get_lines(fd);
 	close(fd);
 	source = (char **)malloc(sizeof(char *) * cl->count);

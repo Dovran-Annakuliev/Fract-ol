@@ -1,4 +1,4 @@
-#include "includes/fractol.h"
+#include "fractol.h"
 
 void			color_fractal(t_mlx *data)
 {

@@ -6,8 +6,8 @@ static void julia(t_mlx *data, int x, int y)
 	t_complex c;
 	int i;
 
-	z.a = (double)x / IW - 1.5;
-	z.b = (double)y / IH - 0.5;
+	z.a = (double)x / W - 1.5;
+	z.b = (double)y / H - 0.5;
 	c.a = -0.4;
 	c.b = 0.6;
 //	c.a = -0.835;
@@ -21,9 +21,9 @@ static void julia(t_mlx *data, int x, int y)
 			break;
 	}
 	if (i >= data->iter / 2)
-		data->img.img_data[y * IW + x] = 0x106060;
+		data->img.img_data[y * W + x] = 0x106060;
 	else
-		data->img.img_data[y * IW + x] = 0x000000;
+		data->img.img_data[y * W + x] = 0x000000;
 }
 
 static void mandelbrot(t_mlx *data, int x, int y)
@@ -34,8 +34,8 @@ static void mandelbrot(t_mlx *data, int x, int y)
 
 	z.a = 0;
 	z.b = 0;
-	c.a = (double)x / IW - 1.5;
-	c.b = (double)y / IH - 0.5;
+	c.a = (double)x / W - 1.5;
+	c.b = (double)y / H - 0.5;
 	i = -1;
 	while (++i < data->iter)
 	{
@@ -45,15 +45,15 @@ static void mandelbrot(t_mlx *data, int x, int y)
 			break;
 	}
 	if (i == data->iter)
-		data->img.img_data[y * IW + x] = 0x106060;
+		data->img.img_data[y * W + x] = 0x106060;
 	else
-		data->img.img_data[y * IW + x] = 0x000000;
+		data->img.img_data[y * W + x] = 0x000000;
 }
 
 void fractol(t_mlx *data, int x, int y)
 {
-	if (data->fract.fract == 1)
+	if (data->fractal_type == 1)
 		julia(data, x, y);
-	else if (data->fract.fract == 2)
+	else if (data->fractal_type == 2)
 		mandelbrot(data, x, y);
 }
