@@ -1,7 +1,6 @@
 #ifndef FRACTOL_H
 #define FRACTOL_H
 
-
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
@@ -21,19 +20,8 @@
 # include "../libft/libft.h"
 # include "key.h"
 
-# define W 1000
-# define H 1000
-# define WHITE 0xffffff
-# define BLACK 0x000000
-# define RED 0xfa0c0c
-# define ORANGE 0xfa620a
-# define YELLOW 0xfae20a
-# define INDIGO 0x4b0082
-# define PURPLE 0x220033
-
-# define CL_SILENCE_DEPRECATION TRUE
-# define WIDTH 1280
-# define HEIGHT 720
+# define W 1920
+# define H 1080
 # define HELP_WIDTH 600
 # define HELP_HEIGHT 400
 # define MIN_RE -2.0f
@@ -42,6 +30,14 @@
 # define MAX_IM 1.17f
 # define ZOOM 0.9501f
 # define OFFSET 0.05f
+
+# define WHITE 0xffffff
+# define BLACK 0x000000
+# define RED 0xfa0c0c
+# define ORANGE 0xfa620a
+# define YELLOW 0xfae20a
+# define INDIGO 0x4b0082
+# define PURPLE 0x220033
 
 typedef union	u_rgb
 {

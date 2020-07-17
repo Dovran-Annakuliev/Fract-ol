@@ -30,5 +30,6 @@ void		draw_image(t_mlx *data)
 	clFinish(data->cl.queue);
 
 	color_fractal(data);
+	cl_free(&data->cl);
 	ret = clReleaseMemObject(output_buffer);
 }

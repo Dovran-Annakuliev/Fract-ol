@@ -1,5 +1,12 @@
 #include "../includes/fractol.h"
 
+static int	close_menu(int key, t_mlx *data)
+{
+	if (key == H)
+		help_menu(key, data);
+	return (0);
+}
+
 int		help_menu(int key, t_mlx *data)
 {
 	if (key == H)
@@ -7,7 +14,7 @@ int		help_menu(int key, t_mlx *data)
 		if (data->help_status == 0)
 		{
 			if (!(data->help = mlx_new_window(data->mlx, HELP_WIDTH, HELP_HEIGHT, "Help")))
-				error(0);
+				errors(0);
 			data->help_status = 1;
 			mlx_hook(data->help, 2, (1L << 0), close_menu, data);
 		}
@@ -17,13 +24,6 @@ int		help_menu(int key, t_mlx *data)
 			data->help_status = 0;
 		}
 	}
-	return (0);
-}
-
-static int	close_menu(int key, t_mlx *data)
-{
-	if (key == H)
-		help_menu(key, data);
 	return (0);
 }
 

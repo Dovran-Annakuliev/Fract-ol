@@ -7,17 +7,17 @@ void			color_fractal(t_mlx *data)
 		for (int j = 0; j < W; ++j)
 		{
 			if (data->view.color_type == 1)
-				data->img.img_data[i * W + j] = basic_one(data->result[i * W + j], data->max_iter);
+				data->img.img_data[i * W + j] = basic_one(data->result[i * W + j], data->iter);
 			if (data->view.color_type == 2)
-				data->img.img_data[i * W + j] = zerg(data->result[i * W + j], data->max_iter);
+				data->img.img_data[i * W + j] = zerg(data->result[i * W + j], data->iter);
 			if (data->view.color_type == 3)
-				data->img.img_data[i * W + j] = black_hole(data->result[i * W + j], data->max_iter);
+				data->img.img_data[i * W + j] = black_hole(data->result[i * W + j], data->iter);
 			if (data->view.color_type == 4)
-				data->img.img_data[i * W + j] = mix(data->result[i * W + j], data->max_iter);
+				data->img.img_data[i * W + j] = mix(data->result[i * W + j], data->iter);
 		}
 	}
-	mlx_clear_window(data->mlx, data->win);
-	mlx_put_image_to_window(data->mlx, data->win, data->img.img_ptr, 0, 0);
+	mlx_clear_window(data->mlx, data->window);
+	mlx_put_image_to_window(data->mlx, data->window, data->img.image, 0, 0);
 }
 
 int				zerg(float x, int max)

@@ -1,13 +1,15 @@
 GCC = gcc -Wall -Wextra -Werror
 NAME = fractol
-SRCS = sources/main.c\
+SRCS = sources/cl_init.c\
+		sources/coloring.c\
+		sources/controls.c\
+		sources/controls_2.c\
 		sources/data_init.c\
-		sources/errors.c\
 		sources/draw_image.c\
-		sources/key.c
-		sources/cl_init.c\
-		sources/coloring\
-		sources/rgb.c\
+		sources/errors.c\
+		sources/key.c\
+		sources/main.c\
+		sources/rgb.c
 OBJS = $(SRCS:.c=.o)
 HEAD = -c -I includes\fractol.h\
 				includes\key.h
