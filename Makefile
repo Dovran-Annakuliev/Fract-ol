@@ -3,10 +3,11 @@ NAME = fractol
 SRCS = sources/main.c\
 		sources/data_init.c\
 		sources/errors.c\
-		sources/read_arg.c\
-		sources/fractol.c\
 		sources/draw_image.c\
 		sources/key.c
+		sources/cl_init.c\
+		sources/coloring\
+		sources/rgb.c\
 OBJS = $(SRCS:.c=.o)
 HEAD = -c -I includes\fractol.h\
 				includes\key.h
@@ -21,7 +22,7 @@ ifeq ($(detected_OS),Linux)
 	-lXrandr -lXrender -lXi -lXfixes -lXxf86vm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp
 	LIBMAKE := minilibx/minilibx
 	LIB :=  -L libft -lft -L $(LIBMAKE) -lmlx_Linux  -lXrandr -lXrender -lXi -lXfixes \
-	-lXxf86vm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp -lm
+	-lXxf86vm -lXext -lX11 -lpthread -lxcb -lXau -lXdmcp -lm -lOpenCL -lrt
 endif
 ifeq ($(detected_OS),Darwin)  
 	#LIB = -L./libs/glad/ -lglad -L./libs/glfw/src/ -lglfw3      # Mac OS X

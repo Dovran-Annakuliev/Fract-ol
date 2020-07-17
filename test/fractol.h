@@ -16,8 +16,8 @@
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
-#include "../minilibx/mlx.h"
-#include "../libft/libft.h"
+#include "minilibx/minilibx/mlx.h"
+#include "libft/libft.h"
 #include <OpenCL/opencl.h>
 #include "keys.h"
 #include "color_schemes.h"

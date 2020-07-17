@@ -1,3 +1,0 @@
-#include "../includes/fractol.h"
-
-

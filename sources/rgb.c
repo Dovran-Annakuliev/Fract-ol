@@ -39,30 +39,3 @@ t_rgb	hsv_to_rgb(float h, float s, float v)
 		return (new_rgb_color(t, p, v * 255));
 	return (new_rgb_color(v * 255, p, q));
 }
-
-//t_rgb	*new_palette(t_rgb start, t_rgb end, int steps)
-//{
-//	t_rgb *palette;
-//	int dr;
-//	int dg;
-//	int db;
-//	int i;
-//
-//	palette = (t_rgb*)malloc(sizeof(t_rgb) * (steps + 2));
-//	palette[0] = start;
-//	palette[steps + 1] = end;
-//	i = 1;
-//	dr = (start.t_rgba.r - end.t_rgba.r) / (steps + 1);
-//	dg = (start.t_rgba.g - end.t_rgba.g) / (steps + 1);
-//	db = (start.t_rgba.b - end.t_rgba.b) / (steps + 1);
-//	while (i <= steps)
-//	{
-//		palette[i] = new_rgb_color(palette[i - 1].t_rgba.r - dr, palette[i - 1].t_rgba.g - dg, palette[i - 1].t_rgba.b - db);
-//		i++;
-//	}
-//	for (int j = 0; j < (steps + 2) ; ++j)
-//	{
-//		printf("%d = %d %d %d\n", j, palette[j].t_rgba.r, palette[j].t_rgba.g, palette[j].t_rgba.b);
-//	}
-//	return (palette);
-//}

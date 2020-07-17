@@ -1,6 +1,7 @@
 #ifndef FRACTOL_H
 #define FRACTOL_H
 
+
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
@@ -19,12 +20,28 @@
 
 # include "../libft/libft.h"
 # include "key.h"
-# include "color_schemes.h"
 
 # define W 1000
 # define H 1000
-//# define IW 1000
-//# define IH 1000
+# define WHITE 0xffffff
+# define BLACK 0x000000
+# define RED 0xfa0c0c
+# define ORANGE 0xfa620a
+# define YELLOW 0xfae20a
+# define INDIGO 0x4b0082
+# define PURPLE 0x220033
+
+# define CL_SILENCE_DEPRECATION TRUE
+# define WIDTH 1280
+# define HEIGHT 720
+# define HELP_WIDTH 600
+# define HELP_HEIGHT 400
+# define MIN_RE -2.0f
+# define MAX_RE 2.0f
+# define MIN_IM -1.17f
+# define MAX_IM 1.17f
+# define ZOOM 0.9501f
+# define OFFSET 0.05f
 
 typedef union	u_rgb
 {
@@ -50,20 +67,20 @@ typedef struct	s_image
 typedef	struct	s_view
 {
 	int			color_type;
-	double 		zf;
-	double 		zoom;
-	double 		minX;
-	double 		maxX;
-	double 		minY;
-	double 		maxY;
-	double 		offsetX;
-	double 		offsetY;
-	double 		prev_mouseX;
-	double 		prev_mouseY;
-	double 		mouseShiftX;
-	double 		mouseShiftY;
-	double		mouse_re;
-	double		mouse_im;
+	float 		zf;
+	float 		zoom;
+	float 		minX;
+	float 		maxX;
+	float 		minY;
+	float 		maxY;
+	float 		offsetX;
+	float 		offsetY;
+	float 		prev_mouseX;
+	float 		prev_mouseY;
+	float 		mouseShiftX;
+	float 		mouseShiftY;
+	float		mouse_re;
+	float		mouse_im;
 
 }				t_view;
 
@@ -83,33 +100,47 @@ typedef struct	s_mlx
 {
 	void		*window;
 	void		*mlx;
+	void		*help;
+	int			help_status;
 	t_image		img;
 	t_cl		cl;
 	t_view		view;
 	char		*sourse_fractal;
 	int			fractal_type;
 	int			iter;
-	double 		*result;
+	float 		*result;
 }				t_mlx;
 
 int				main(int ac, char **av);
 t_mlx			*data_init(int ac, char **av);
+void			default_settings(t_mlx *data);
 void			errors(int err);
-
-int				keyboard_key(int key, t_mlx *data);
-int				mouse_key(int key, t_mlx *data);
-int				change_julia(int key, t_mlx *data);
+void			error(int err);
 
 void			draw_image(t_mlx *data);
 void			color_fractal(t_mlx *data);
 t_rgb			new_rgb_color(unsigned char r, unsigned char g, unsigned char b);
 t_rgb			hsv_to_rgb(float h, float s, float v);
-
-//void			read_arg(int ac, char **av, t_mlx *data);
-//void			fractol(t_mlx *data, int x, int y);
+int				zerg(float x, int max);
+int				basic_one(float i, int max);
+int				black_hole(float i, int max);
+int				mix(float i, int max);
+int				change_color(int key, t_mlx *data);
 
 char			**get_kernel_source(t_cl *cl, char *type);
 void			cl_init(t_cl *cl);
 void			cl_free(t_cl *cl);
+
+int				change_julia(int x, int y, t_mlx *data);
+int				zoom(int key, t_mlx *data, int x, int y);
+int				max_iter_change(int x, t_mlx *data);
+int				refresh(int key, t_mlx *data);
+int				redraw(int key, t_mlx *data);
+int				arrow_move(int key, t_mlx *data);
+void			close_fractol(t_mlx *data);
+int				help_menu(int key, t_mlx *data);
+
+t_rgb			*new_palette(t_rgb start, t_rgb end, int steps);
+
 
 #endif

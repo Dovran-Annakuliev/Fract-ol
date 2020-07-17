@@ -17,8 +17,6 @@ void 	default_settings(t_mlx *data)
 	data->view.mouseShiftY = 0.0f;
 	data->view.mouse_re = 0.0f;
 	data->view.mouse_im = 0.0f;
-	data->iter = 100;
-	data->result = (double *)malloc(sizeof(double) * (W * H));
 }
 
 void	read_arg(int ac, char **av, t_mlx *data)
@@ -62,5 +60,12 @@ t_mlx		*data_init(int ac, char **av)
 		errors(0);
 	read_arg(ac, av, data);
 	default_settings(data);
+	if (data->fractal_type == 3)
+	{
+		data->view.maxY -= 0.6f;
+		data->view.minY -= 0.6f;
+	}
+	data->iter = 100;
+	data->result = (float *)malloc(sizeof(float) * (W * H));
 	return (data);
 }
