@@ -28,7 +28,6 @@
 # define MAX_RE 2.0f
 # define MIN_IM -1.17f
 # define MAX_IM 1.17f
-# define ZOOM 0.9501f
 # define OFFSET 0.05f
 
 # define WHITE 0xffffff
@@ -71,14 +70,16 @@ typedef	struct	s_view
 	float 		maxY;
 	float 		offsetX;
 	float 		offsetY;
-	float 		prev_mouseX;
-	float 		prev_mouseY;
-	float 		mouseShiftX;
-	float 		mouseShiftY;
 	float		mouse_re;
 	float		mouse_im;
 	float 		offset;
-
+	float		julia_re;
+	float		julia_im;
+	int 		julia_change_mod;
+	int			pressed_button;
+	int 		zoom_x;
+	int 		zoom_y;
+	int 		button;
 }				t_view;
 
 typedef struct	s_cl
@@ -91,6 +92,8 @@ typedef struct	s_cl
 	cl_kernel			kernel;
 	char 				**kernel_source;
 	int 				count;
+	size_t 				dim;
+	size_t				global_size[2];
 }				t_cl;
 
 typedef struct	s_mlx

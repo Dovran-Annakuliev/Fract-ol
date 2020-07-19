@@ -69,13 +69,16 @@ int		change_julia(int x, int y, t_mlx *data)
 	float re_factor;
 	float im_factor;
 
-	re_factor = (MAX_RE - MIN_RE) / (W);
-	im_factor = (MAX_IM - MIN_IM) / (H);
-	data->view.mouse_re = MIN_RE + x * re_factor;
-	data->view.mouse_im = MAX_IM - y * im_factor;
-	mlx_clear_window(data->mlx, data->window);
-	draw_image(data);
-	mlx_do_sync(data->mlx);
+	if (data->view.julia_change_mod == 1)
+	{
+		re_factor = (MAX_RE - MIN_RE) / (W);
+		im_factor = (MAX_IM - MIN_IM) / (H);
+		data->view.julia_re = MIN_RE + (float) x * re_factor;
+		data->view.julia_im = MAX_IM - (float) y * im_factor;
+		mlx_clear_window(data->mlx, data->window);
+		draw_image(data);
+		mlx_do_sync(data->mlx);
+	}
 	return (0);
 }
 

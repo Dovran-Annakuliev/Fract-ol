@@ -64,6 +64,9 @@ void	cl_init(t_cl *cl)
 	/* создать кернел, передваемое имя - название kernela в файле .cl */
 	cl->kernel = clCreateKernel(cl->program, "array_add", &ret);
 	cl->queue = clCreateCommandQueue(cl->context, cl->device_id, 0, &ret);
+	cl->dim = 2;
+	cl->global_size[0] = W;
+	cl->global_size[1] = H;
 }
 
 void	cl_free(t_cl *cl)

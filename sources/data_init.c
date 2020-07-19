@@ -4,19 +4,19 @@ void 	default_settings(t_mlx *data)
 {
 	data->view.color_type = 1;
 	data->view.zf = 1.0f;
-	data->view.zoom = 1.0f;
 	data->view.minX = -2.0f;
 	data->view.maxX = 2.0f;
 	data->view.minY = -1.17f;
 	data->view.maxY = 1.17f;
-	data->view.offsetX = 0.0f;
-	data->view.offsetY = 0.0f;
-	data->view.prev_mouseX = 0.0f;
-	data->view.prev_mouseY = 0.0f;
-	data->view.mouseShiftX = 0.0f;
-	data->view.mouseShiftY = 0.0f;
+	data->view.offset = 0.0f;
+	data->view.color_type = 1;
 	data->view.mouse_re = 0.0f;
 	data->view.mouse_im = 0.0f;
+	data->view.julia_re = 0.0f;
+	data->view.julia_im = 0.0f;
+	data->view.button = 0;
+	data->view.pressed_button = -1;
+	data->view.julia_change_mod = 1;
 }
 
 void	read_arg(int ac, char **av, t_mlx *data)
