@@ -36,7 +36,7 @@ int		main(int ac, char **av)
 
 	data = data_init(ac, av);
 	data->cl.kernel_source = get_kernel_source(&data->cl, data->sourse_fractal);
-//	cl_init(&data->cl);
+	cl_init(&data->cl);
 	draw_image(data);
 
 	mlx_hook(data->window, 2, 1l << 0, key_press, data);
@@ -46,6 +46,6 @@ int		main(int ac, char **av)
 	mlx_loop(data->mlx);
 	mlx_clear_window(data->mlx, data->window);
 	mlx_destroy_image(data->mlx, data->img.img_data);
-//	cl_free(&data->cl);
+	cl_free(&data->cl);
 	return (0);
 }

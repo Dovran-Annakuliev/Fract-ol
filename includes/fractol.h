@@ -77,6 +77,7 @@ typedef	struct	s_view
 	float 		mouseShiftY;
 	float		mouse_re;
 	float		mouse_im;
+	float 		offset;
 
 }				t_view;
 

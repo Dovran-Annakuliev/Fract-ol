@@ -38,10 +38,12 @@
 # define FOUR 21
 # define MIN 27
 # define PLUS 24
+# define WHEEL_UP 4
+# define WHEEL_DOWN 5
+# define LEFT_MB 1
+# define RIGHT_MB 2
 # define AR_UP 126
 # define AR_DOWN 125
 # define AR_LEFT 123
 # define AR_RIGHT 124
-# define LEFT_MB 1
-# define RIGHT_MB 2
 #endif

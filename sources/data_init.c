@@ -23,20 +23,36 @@ void	read_arg(int ac, char **av, t_mlx *data)
 {
 	if (ac != 2)
 		errors(1);
-	if ((ft_strcmp(av[1], "Julia")) == 0)
+	if ((ft_strcmp(av[1], "Mandelbrot")) == 0)
 	{
 		data->fractal_type = 1;
-		data->sourse_fractal = "cl_sources/julia.cl";
-	}
-	else if ((ft_strcmp(av[1], "Mandelbrot")) == 0)
-	{
-		data->fractal_type = 2;
 		data->sourse_fractal = "cl_sources/mandelbrot.cl";
 	}
-	else if ((ft_strcmp(av[1], "Dragon")) == 0)
+	else if ((ft_strcmp(av[1], "Julia")) == 0)
+	{
+		data->fractal_type = 2;
+		data->sourse_fractal = "cl_sources/julia.cl";
+	}
+	else if ((ft_strcmp(av[1], "Ship")) == 0)
 	{
 		data->fractal_type = 3;
 		data->sourse_fractal = "cl_sources/ship.cl";
+	}
+	else if ((ft_strcmp(av[1], "Wrong_Phoenix")) == 0)
+	{
+		data->fractal_type = 4;
+		data->sourse_fractal = "cl_sources/wrong_phoenix.cl";
+	}
+	else if ((ft_strcmp(av[1], "Phoenix")) == 0)
+	{
+		data->fractal_type = 5;
+		data->sourse_fractal = "cl_sources/classic_phoenix.cl";
+	}
+
+	else if ((ft_strcmp(av[1], "Dragon")) == 0)
+	{
+		data->fractal_type = 6;
+		data->sourse_fractal = "cl_sources/newton.cl";
 	}
 	else
 		errors(2);

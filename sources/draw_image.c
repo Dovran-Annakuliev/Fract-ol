@@ -2,7 +2,6 @@
 
 void		draw_image(t_mlx *data)
 {
-	cl_init(&data->cl);
 	cl_int				ret;
 	cl_mem output_buffer;
 
@@ -13,7 +12,7 @@ void		draw_image(t_mlx *data)
 	clSetKernelArg(data->cl.kernel, 3, sizeof(float), &data->view.minY);
 	clSetKernelArg(data->cl.kernel, 4, sizeof(float), &data->view.maxY);
 
-	if (data->fractal_type == 1)
+	if (data->fractal_type == 2)
 	{
 		clSetKernelArg(data->cl.kernel, 5, sizeof(float), &data->view.mouse_re);
 		clSetKernelArg(data->cl.kernel, 6, sizeof(float), &data->view.mouse_im);
@@ -30,6 +29,5 @@ void		draw_image(t_mlx *data)
 	clFinish(data->cl.queue);
 
 	color_fractal(data);
-	cl_free(&data->cl);
 	ret = clReleaseMemObject(output_buffer);
 }
