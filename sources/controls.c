@@ -23,8 +23,8 @@ int		zoom(int key, t_mlx *data, int x, int y)
 		data->view.zf += 1.0f;
 		interpolation = 1.0f / 1.02f;
 	}
-	data->view.mouse_re = (float)x / (W / (data->view.maxX - data->view.minX)) + data->view.minX;
-	data->view.mouse_im = (float)y / (H / (data->view.maxY - data->view.minY)) + data->view.minY;
+	data->view.mouse_re = (float)x / (WIDTH / (data->view.maxX - data->view.minX)) + data->view.minX;
+	data->view.mouse_im = (float)y / (HEIGHT / (data->view.maxY - data->view.minY)) + data->view.minY;
 	data->view.minX = interpolate(data->view.mouse_re, data->view.minX, interpolation);
 	data->view.minY = interpolate(data->view.mouse_im, data->view.minY, interpolation);
 	data->view.maxX = interpolate(data->view.mouse_re, data->view.maxX, interpolation);
@@ -48,7 +48,7 @@ int 	arrow_move(int key, t_mlx *data)
 		data->view.minX += data->view.offset * 1;
 		data->view.maxX += data->view.offset * 1;
 	}
-	if (key == W)
+	if (key == WIDTH)
 	{
 		data->view.minY += data->view.offset * -1;
 		data->view.maxY += data->view.offset * -1;
@@ -71,8 +71,8 @@ int		change_julia(int x, int y, t_mlx *data)
 
 	if (data->view.julia_change_mod == 1)
 	{
-		re_factor = (MAX_RE - MIN_RE) / (W);
-		im_factor = (MAX_IM - MIN_IM) / (H);
+		re_factor = (MAX_RE - MIN_RE) / (WIDTH);
+		im_factor = (MAX_IM - MIN_IM) / (HEIGHT);
 		data->view.julia_re = MIN_RE + (float) x * re_factor;
 		data->view.julia_im = MAX_IM - (float) y * im_factor;
 		mlx_clear_window(data->mlx, data->window);

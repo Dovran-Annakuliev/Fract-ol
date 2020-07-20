@@ -20,8 +20,8 @@
 # include "../libft/libft.h"
 # include "key.h"
 
-# define W 1920
-# define H 1080
+# define WIDTH 1920
+# define HEIGHT 1080
 # define HELP_WIDTH 600
 # define HELP_HEIGHT 400
 # define MIN_RE -2.0f
@@ -112,7 +112,7 @@ typedef struct	s_mlx
 }				t_mlx;
 
 int				main(int ac, char **av);
-t_mlx			*data_init(int ac, char **av);
+t_mlx			*data_init(char *av);
 void			default_settings(t_mlx *data);
 void			errors(int err);
 void			error(int err);

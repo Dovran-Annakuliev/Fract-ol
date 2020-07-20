@@ -39,13 +39,7 @@ static int	key_press(int key, t_mlx *data)
 	if (key == H)
 		help_menu(key, data);
 	if (key == M)
-	{
-//		data->view.julia_change_mod = (data->view.julia_change_mod == 1) ? 0 : 1;
-		if (data->view.julia_change_mod == 1)
-			data->view.julia_change_mod = 0;
-		else
-			data->view.julia_change_mod =1;
-	}
+		data->view.julia_change_mod = (data->view.julia_change_mod == 1) ? 0 : 1;
 	if (key == SPACE)
 		redraw(key, data);
 	if (key == ONE || key == TWO || key == THREE || key == FOUR)
@@ -58,21 +52,17 @@ static int	key_press(int key, t_mlx *data)
 int		main(int ac, char **av)
 {
 	t_mlx *data;
+	t_mlx *data2;
 
-	data = data_init(ac, av);
-	data->cl.kernel_source = get_kernel_source(&data->cl, data->sourse_fractal);
-	cl_init(&data->cl);
+	if (ac < 2 || ac > 3)
+		errors(1);
+	data = data_init(av[1]);
 	draw_image(data);
-
 	mlx_hook(data->window, 2, (1L << 2), key_press, data);
 	mlx_hook(data->window, 4, (1L << 2), mouse_button_press, data);
 	mlx_hook(data->window, 6, (1L << 2), change_julia, data);
 	mlx_hook(data->window, 5, (1L << 2), mouse_button_release, data);
 	mlx_loop_hook(data->mlx, no_events, data);
-
 	mlx_loop(data->mlx);
-	mlx_clear_window(data->mlx, data->window);
-	mlx_destroy_image(data->mlx, data->img.img_data);
-	cl_free(&data->cl);
 	return (0);
 }

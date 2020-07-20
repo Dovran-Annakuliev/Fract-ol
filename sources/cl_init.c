@@ -65,8 +65,8 @@ void	cl_init(t_cl *cl)
 	cl->kernel = clCreateKernel(cl->program, "array_add", &ret);
 	cl->queue = clCreateCommandQueue(cl->context, cl->device_id, 0, &ret);
 	cl->dim = 2;
-	cl->global_size[0] = W;
-	cl->global_size[1] = H;
+	cl->global_size[0] = WIDTH;
+	cl->global_size[1] = HEIGHT;
 }
 
 void	cl_free(t_cl *cl)
