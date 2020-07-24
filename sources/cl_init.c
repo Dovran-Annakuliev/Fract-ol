@@ -55,11 +55,17 @@ void	cl_init(t_cl *cl)
 	/* скомпилировать программу */
 	ret = clBuildProgram(cl->program, 1, &cl->device_id, NULL, NULL, NULL);
 
-	size_t log_size;
-	clGetProgramBuildInfo(cl->program, cl->device_id, CL_PROGRAM_BUILD_LOG, 0, NULL, &log_size);
-	char *log = (char *)malloc(sizeof(char) * log_size);
-	clGetProgramBuildInfo(cl->program, cl->device_id, CL_PROGRAM_BUILD_LOG, log_size, log, NULL);
-	write(open("log.txt", O_WRONLY), log, log_size);
+	if (ret < 0)
+	{
+		size_t log_size;
+		clGetProgramBuildInfo(cl->program, cl->device_id, CL_PROGRAM_BUILD_LOG, 0, NULL, &log_size);
+		char *log = (char *) malloc(sizeof(char) * log_size);
+		log[log_size] = '\0';
+		clGetProgramBuildInfo(cl->program, cl->device_id, CL_PROGRAM_BUILD_LOG, log_size + 1, log, NULL);
+		printf("%s\n", log);
+//		write(open("log.txt", O_WRONLY), log, log_size);
+		free(log);
+	}
 
 	/* создать кернел, передваемое имя - название kernela в файле .cl */
 	cl->kernel = clCreateKernel(cl->program, "array_add", &ret);
