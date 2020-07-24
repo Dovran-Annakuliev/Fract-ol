@@ -42,7 +42,7 @@ static int	key_press(int key, t_mlx *data)
 		data->view.julia_change_mod = (data->view.julia_change_mod == 1) ? 0 : 1;
 	if (key == SPACE)
 		redraw(key, data);
-	if (key == ONE || key == TWO || key == THREE || key == FOUR)
+	if (key == ONE || key == TWO || key == THREE || key == FOUR || key == FIVE || key == SIX)
 		change_color(key,data);
 	if (key == ESC)
 		close_fractol(data);

@@ -104,6 +104,10 @@ int		change_color(int key, t_mlx *data)
 		data->view.color_type = 3;
 	if (key == FOUR)
 		data->view.color_type = 4;
+	if (key == FIVE)
+		data->view.color_type = 5;
+	if (key == SIX)
+		data->view.color_type = 6;
 	color_fractal(data);
 	mlx_do_sync(data->mlx);
 	return (0);
