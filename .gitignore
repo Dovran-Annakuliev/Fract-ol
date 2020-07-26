@@ -4,3 +4,4 @@ CMakeLists.txt
 fractol
 *.o
 *.a
+.DS_store

@@ -5,7 +5,7 @@ void help(t_mlx *data)
 	mlx_string_put(data->mlx, data->window, 50, 50, WHITE, "H - help menu");
 	mlx_string_put(data->mlx, data->window, 50, 100, WHITE, "W, A, S, D - move imadge");
 	mlx_string_put(data->mlx, data->window, 50, 150, WHITE, "Q, E - change gradient");
-	mlx_string_put(data->mlx, data->window, 50, 200, WHITE, "R - refresh");
+	mlx_string_put(data->mlx, data->window, 50, 200, WHITE, "1, 2, 3, 4, 5, 6 - change color");
 	mlx_string_put(data->mlx, data->window, 50, 250, WHITE, "M - fix Julia");
 	mlx_string_put(data->mlx, data->window, 50, 300, WHITE, "SPACE - default");
 	mlx_string_put(data->mlx, data->window, 50, 350, WHITE, "ESC - exit");
