@@ -64,6 +64,7 @@ t_mlx		*data_init(char *av)
 
 	if (!(data = (t_mlx *)malloc(sizeof(t_mlx))))
 		errors(0);
+	read_arg(av, data);
 	if (!(data->mlx = mlx_init()))
 		errors(0);
 	if (!(data->window = mlx_new_window(data->mlx, WIDTH, HEIGHT, "fractol")))
@@ -73,7 +74,6 @@ t_mlx		*data_init(char *av)
 	if (!(data->img.img_data = (int *)mlx_get_data_addr(data->img.image,
 			&data->img.bbp, &data->img.sz_l, &data->img.end)))
 		errors(0);
-	read_arg(av, data);
 	default_settings(data);
 	if (data->fractal_type == 3)
 	{

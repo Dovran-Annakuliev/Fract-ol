@@ -9,11 +9,10 @@ void	errors(int err)
 		else if (err == 2)
 			write(1, "Invalid argument\n", 17);
 		write(1, "\tuse argument:\tMandelbrot\n", 26);
-		write(1, "\tuse argument:\tJulia\n", 21);
-		write(1, "\tuse argument:\tShip\n", 20);
-		write(1, "\tuse argument:\tWrong_Phoenix\n", 29);
-		write(1, "\tuse argument:\tPhoenix\n", 24);
-		write(1, "\tuse argument:\tDragon\n", 22);
+		write(1, "\t\t\tJulia\n", 9);
+		write(1, "\t\t\tShip\n", 8);
+		write(1, "\t\t\tWrong_Phoenix\n", 17);
+		write(1, "\t\t\tPhoenix\n", 11);
 	}
 	else
 		write(1, "error\n", 6);
