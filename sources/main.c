@@ -10,22 +10,15 @@ static int	mouse_button_release(int button, int x, int y, t_mlx *data)
 
 static int	mouse_button_press(int button, int x, int y, t_mlx *data)
 {
-	if (button == LEFT_MB || button == RIGHT_MB)
+	if (button == LEFT_MB || button == RIGHT_MB || button == WHEEL_UP || button == WHEEL_DOWN)
 	{
 		data->view.button = 1;
 		data->view.pressed_button = button;
 		data->view.zoom_x = x;
 		data->view.zoom_y = y;
 		zoom(button, data, x, y);
-	}
-	else if (button == WHEEL_UP || button == WHEEL_DOWN)
-	{
-		data->view.button = 1;
-		data->view.pressed_button = button;
-		data->view.zoom_x = x;
-		data->view.zoom_y = y;
-		zoom(button, data, x, y);
-		data->view.button = 0;
+		if (button == WHEEL_UP || button == WHEEL_DOWN)
+			data->view.button = 0;
 	}
 	return (0);
 }
