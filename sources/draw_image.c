@@ -3,12 +3,13 @@
 void help(t_mlx *data)
 {
 	mlx_string_put(data->mlx, data->window, 50, 50, WHITE, "H - help menu");
-	mlx_string_put(data->mlx, data->window, 50, 100, WHITE, "W, A, S, D - move imadge");
-	mlx_string_put(data->mlx, data->window, 50, 150, WHITE, "Q, E - change gradient");
-	mlx_string_put(data->mlx, data->window, 50, 200, WHITE, "1, 2, 3, 4, 5, 6 - change color");
-	mlx_string_put(data->mlx, data->window, 50, 250, WHITE, "M - fix Julia");
-	mlx_string_put(data->mlx, data->window, 50, 300, WHITE, "SPACE - default");
-	mlx_string_put(data->mlx, data->window, 50, 350, WHITE, "ESC - exit");
+	mlx_string_put(data->mlx, data->window, 50, 100, WHITE, "LMB, RMB, WHL UP, WHL DOWN - zoom");
+	mlx_string_put(data->mlx, data->window, 50, 150, WHITE, "W, A, S, D - move imadge");
+	mlx_string_put(data->mlx, data->window, 50, 200, WHITE, "Q, E - change iterations");
+	mlx_string_put(data->mlx, data->window, 50, 250, WHITE, "1, 2, 3, 4, 5, 6 - change color");
+	mlx_string_put(data->mlx, data->window, 50, 300, WHITE, "M - fix Julia");
+	mlx_string_put(data->mlx, data->window, 50, 350, WHITE, "SPACE - default");
+	mlx_string_put(data->mlx, data->window, 50, 400, WHITE, "ESC - exit");
 }
 
 void		draw_image(t_mlx *data)
@@ -21,7 +22,7 @@ void		draw_image(t_mlx *data)
 	clSetKernelArg(data->cl.kernel, 2, sizeof(float), &data->view.maxX);
 	clSetKernelArg(data->cl.kernel, 3, sizeof(float), &data->view.minY);
 	clSetKernelArg(data->cl.kernel, 4, sizeof(float), &data->view.maxY);
-	if (data->fractal_type == 2)
+	if (data->fractal_type == 2 || data->fractal_type == 6)
 	{
 		clSetKernelArg(data->cl.kernel, 5, sizeof(float), &data->view.julia_re);
 		clSetKernelArg(data->cl.kernel, 6, sizeof(float), &data->view.julia_im);

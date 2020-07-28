@@ -18,6 +18,7 @@ void 	default_settings(t_mlx *data)
 	data->view.pressed_button = -1;
 	data->view.julia_change_mod = 1;
 	data->help_status = 1;
+	data->iter = 100;
 }
 
 void	read_arg(char *av, t_mlx *data)
@@ -52,7 +53,7 @@ void	read_arg(char *av, t_mlx *data)
 	else if ((ft_strcmp(av, "Dragon")) == 0)
 	{
 		data->fractal_type = 6;
-		data->sourse_fractal = "cl_sources/newton.cl";
+		data->sourse_fractal = "cl_sources/test.cl";
 	}
 	else
 		errors(2);
@@ -80,7 +81,6 @@ t_mlx		*data_init(char *av)
 		data->view.maxY -= 0.6f;
 		data->view.minY -= 0.6f;
 	}
-	data->iter = 100;
 	data->result = (float *)malloc(sizeof(float) * (WIDTH * HEIGHT));
 	data->cl.kernel_source = get_kernel_source(&data->cl, data->sourse_fractal);
 	cl_init(&data->cl);
