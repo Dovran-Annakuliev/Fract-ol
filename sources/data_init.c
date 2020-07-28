@@ -24,33 +24,33 @@ void 	default_settings(t_mlx *data)
 void	read_arg(char *av, t_mlx *data)
 {
 
-	if ((ft_strcmp(av, "Mandelbrot")) == 0)
+	if ((ft_strcmp(av, "-M")) == 0)
 	{
 		data->fractal_type = 1;
 		data->sourse_fractal = "cl_sources/mandelbrot.cl";
 	}
-	else if ((ft_strcmp(av, "Julia")) == 0)
+	else if ((ft_strcmp(av, "-J")) == 0)
 	{
 		data->fractal_type = 2;
 		data->sourse_fractal = "cl_sources/julia.cl";
 	}
-	else if ((ft_strcmp(av, "Ship")) == 0)
+	else if ((ft_strcmp(av, "-S")) == 0)
 	{
 		data->fractal_type = 3;
 		data->sourse_fractal = "cl_sources/ship.cl";
 	}
-	else if ((ft_strcmp(av, "Wrong_Phoenix")) == 0)
+	else if ((ft_strcmp(av, "-W")) == 0)
 	{
 		data->fractal_type = 4;
 		data->sourse_fractal = "cl_sources/wrong_phoenix.cl";
 	}
-	else if ((ft_strcmp(av, "Phoenix")) == 0)
+	else if ((ft_strcmp(av, "-P")) == 0)
 	{
 		data->fractal_type = 5;
 		data->sourse_fractal = "cl_sources/classic_phoenix.cl";
 	}
 
-	else if ((ft_strcmp(av, "Dragon")) == 0)
+	else if ((ft_strcmp(av, "-D")) == 0)
 	{
 		data->fractal_type = 6;
 		data->sourse_fractal = "cl_sources/test.cl";
