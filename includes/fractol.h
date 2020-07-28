@@ -64,13 +64,10 @@ typedef	struct	s_view
 {
 	int			color_type;
 	float 		zf;
-	float 		zoom;
 	float 		minX;
 	float 		maxX;
 	float 		minY;
 	float 		maxY;
-	float 		offsetX;
-	float 		offsetY;
 	float		mouse_re;
 	float		mouse_im;
 	float 		offset;
@@ -120,6 +117,7 @@ void			error(int err);
 
 void			draw_image(t_mlx *data);
 void			color_fractal(t_mlx *data);
+void			help(t_mlx *data);
 t_rgb			new_rgb_color(unsigned char r, unsigned char g, unsigned char b);
 t_rgb			hsv_to_rgb(float h, float s, float v);
 int				zerg(float x, int max);
