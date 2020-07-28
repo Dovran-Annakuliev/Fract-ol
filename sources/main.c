@@ -36,8 +36,6 @@ static int	key_press(int key, t_mlx *data)
 		arrow_move(key, data);
 	if (key == Q || key == E)
 		max_iter_change(key, data);
-	if (key == R)
-		refresh(key, data);
 	if (key == H)
 		help_menu(key, data);
 	if (key == M)

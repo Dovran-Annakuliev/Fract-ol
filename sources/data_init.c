@@ -19,6 +19,11 @@ void 	default_settings(t_mlx *data)
 	data->view.julia_change_mod = 1;
 	data->help_status = 1;
 	data->iter = 100;
+	if (data->fractal_type == 3)
+	{
+		data->view.maxY -= 0.6f;
+		data->view.minY -= 0.6f;
+	}
 }
 
 void	read_arg(char *av, t_mlx *data)
@@ -76,11 +81,6 @@ t_mlx		*data_init(char *av)
 			&data->img.bbp, &data->img.sz_l, &data->img.end)))
 		errors(0);
 	default_settings(data);
-	if (data->fractal_type == 3)
-	{
-		data->view.maxY -= 0.6f;
-		data->view.minY -= 0.6f;
-	}
 	data->result = (float *)malloc(sizeof(float) * (WIDTH * HEIGHT));
 	data->cl.kernel_source = get_kernel_source(&data->cl, data->sourse_fractal);
 	cl_init(&data->cl);

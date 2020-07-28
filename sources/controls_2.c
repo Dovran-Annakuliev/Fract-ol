@@ -20,17 +20,6 @@ int 	redraw(int key, t_mlx *data)
 	return (0);
 }
 
-int 	refresh(int key, t_mlx *data)
-{
-	if (key == R)
-	{
-		mlx_clear_window(data->mlx, data->window);
-		mlx_do_sync(data->mlx);
-		draw_image(data);
-	}
-	return (0);
-}
-
 void	close_fractol(t_mlx *data)
 {
 	mlx_clear_window(data->mlx, data->window);

@@ -113,7 +113,6 @@ int				main(int ac, char **av);
 t_mlx			*data_init(char *av);
 void			default_settings(t_mlx *data);
 void			errors(int err);
-void			error(int err);
 
 void			draw_image(t_mlx *data);
 void			color_fractal(t_mlx *data);
@@ -133,13 +132,10 @@ void			cl_free(t_cl *cl);
 int				change_julia(int x, int y, t_mlx *data);
 int				zoom(int key, t_mlx *data, int x, int y);
 int				max_iter_change(int x, t_mlx *data);
-int				refresh(int key, t_mlx *data);
 int				redraw(int key, t_mlx *data);
 int				arrow_move(int key, t_mlx *data);
 void			close_fractol(t_mlx *data);
 int				help_menu(int key, t_mlx *data);
-
-t_rgb			*new_palette(t_rgb start, t_rgb end, int steps);
 
 
 #endif
