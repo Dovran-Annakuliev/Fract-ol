@@ -13,8 +13,8 @@ Install (only for macOS):
 
   
 Run:
-1) Run the "./fractol" command, which takes the name of the fractal as an argument 
-  (the names of the fractals can be obtained by running the command "./fractol" without arguments).
+1) Run the "./fractol" command, which takes the fractal flag as an argument
+   (the fractal flag can be obtained by running the "./fractol" command with no arguments).
 
 Examples:
 ![alt text](screenshots/1.png)​
