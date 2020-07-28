@@ -7,7 +7,7 @@ void	errors(int err)
 		if (err == 1)
 			write(1, "\tusage: ./fractol [flag]\n", 25);
 		else if (err == 2)
-			write(1, "Invalid argument\n", 17);
+			write(1, "\tInvalid flag\n", 14);
 		write(1, "\tuse flag:\t-M (Mandelbrot)\n", 27);
 		write(1, "\t\t\t-J (Julia)\n", 14);
 		write(1, "\t\t\t-S (Ship)\n", 13);
