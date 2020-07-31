@@ -48,7 +48,7 @@ int 	arrow_move(int key, t_mlx *data)
 		data->view.minX += data->view.offset * 1;
 		data->view.maxX += data->view.offset * 1;
 	}
-	if (key == WIDTH)
+	if (key == W)
 	{
 		data->view.minY += data->view.offset * -1;
 		data->view.maxY += data->view.offset * -1;
